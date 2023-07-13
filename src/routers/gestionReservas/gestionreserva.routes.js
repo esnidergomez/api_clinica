@@ -1,9 +1,13 @@
 import { Router } from "express";
-
+import { 
+    postRegistrarReserva,
+    postCancelarReserva, 
+    getConsultarReserva
+} from "../../controllers/gestionReservas/gestionreserva.controller.js";
 const reservaRouter = Router();
 
-reservaRouter.get("/registrar-reserva/:idUsuario", () => console.log(""));
-reservaRouter.get("/consultar-reservas/:idUsuario", () => console.log(""));
-reservaRouter.get("/cancelar-reserva/:idReserva", () => console.log(""));
+reservaRouter.post("/registrar-reserva/:idUsuario", postRegistrarReserva);
+reservaRouter.get("/consultar-reservas/:idUsuario", getConsultarReserva);
+reservaRouter.post("/cancelar-reserva/:idReserva", postCancelarReserva);
 
 export default reservaRouter;

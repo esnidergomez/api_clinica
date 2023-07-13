@@ -19,7 +19,7 @@ app.use(gestionEspecialidades,especialidadRouter);
 app.use(gestionReservas,reservaRouter);
 app.use(mercadoPago,pagoRouter);
 app.use(gestionHorarios,gestihorarioRouter);
-app.use((req, res, next) => {
+app.use((req, res, next) => { 
     res.status(404).json({ message: "endpoint Not found" });
 });
 
