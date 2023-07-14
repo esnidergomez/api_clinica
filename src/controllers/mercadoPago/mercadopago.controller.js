@@ -13,13 +13,13 @@ export const postPagar = async (req, res) => {
         idMedico,
         idEspecialidad,
         idClinica,
-        idTiempoDisponible
+        idTiempoDisponible 
     } = req.body;
     mercadopago.configure({
         access_token: 'TEST-56925687694290-071103-bdf6640e055ddacf48b60f3c71ecba7e-1420890444' 
     })
     const result = await mercadopago.preferences.create({
-        items: [
+        items: [ 
             {
                 title: titulo,
                 unit_price: precio,

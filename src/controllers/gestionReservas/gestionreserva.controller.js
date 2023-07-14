@@ -6,7 +6,7 @@ export const postRegistrarReserva = async (req, res) => {
     { 
         fechaagenda, 
         horaagenda, 
-        idmedico, 
+        idmedico,   
         idespecialidad, 
         idclinica, 
         idtiempos_disponibles, 
