@@ -3,5 +3,5 @@ import { postPagar } from "../../controllers/mercadoPago/mercadopago.controller.
 const pagoRouter = Router();
 
 pagoRouter.get("/pagar", postPagar);
-
+ 
 export default pagoRouter;

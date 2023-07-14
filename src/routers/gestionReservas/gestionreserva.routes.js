@@ -10,4 +10,4 @@ reservaRouter.post("/registrar-reserva/:idUsuario", postRegistrarReserva);
 reservaRouter.get("/consultar-reservas/:idUsuario", getConsultarReserva);
 reservaRouter.post("/cancelar-reserva/:idReserva", postCancelarReserva);
 
-export default reservaRouter;
+export default reservaRouter; 
