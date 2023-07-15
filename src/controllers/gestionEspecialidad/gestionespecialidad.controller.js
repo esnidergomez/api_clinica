@@ -37,11 +37,11 @@ export const getEspecialidadesFavoritasPorUsuario = async (req, res, next) => {
   
     try {
       const result = await pool.query('CALL verEspecialidadesFavoritas(?);', [idUsuario]);
-  
-      if (result[0].length === 0) {
+        console.log(result);
+      if (result[0][0].length === 0) {
         res.status(404).json({ message: 'No se encontraron especialidades favoritas para el usuario especificado' });
       } else {
-        res.json(result[0]);
+        res.json(result[0][0]);
       }
     } catch (error) {
       next(error);
@@ -55,9 +55,8 @@ export const putEspecialidadFavorita = async (req, res, next) => {
   
     try {
       const result = await pool.query('CALL gestionarEspecialidadFavorita(?, ?);', [idUsuario, idEspecialidad]);
-      
-      const mensaje = result[0][0].mensaje;
-      res.json({ message: mensaje });
+      const mensaje = result[0][0][0];
+      res.json(mensaje);
     } catch (error) {
       next(error);
     }

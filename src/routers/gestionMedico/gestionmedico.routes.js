@@ -4,11 +4,11 @@ import {
     getMedicos,
     getMedicosFavoritos,
     putMedicoFavorito
-} from "../../controllers/gestionMedico/gestionmedico.controller";
+} from "../../controllers/gestionMedico/gestionmedico.controller.js";
 const medicoRouter = Router();
 
-medicoRouter.get("/consultar-medicos", getMedico);
-medicoRouter.get("/consultar-medico/:idMedico", getMedicos);
+medicoRouter.get("/consultar-medicos", getMedicos);
+medicoRouter.get("/consultar-medico/:idMedico", getMedico);
 medicoRouter.get("/consultar-medicos-favoritos/:idUsuario", getMedicosFavoritos);
 medicoRouter.put("/asignar-medico-favorito/:idUsuario", putMedicoFavorito);
 

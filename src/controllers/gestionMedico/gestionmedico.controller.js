@@ -3,11 +3,11 @@ import { pool } from "../../db.js";
 export const getMedicos = async (req, res, next) => {
     try {
         const result = await pool.query('CALL obtenerDatosMedicos();');
-
-        if (result[0].length === 0) {
+        console.log(result);
+        if (result[0][0].length === 0) {
             res.status(404).json({ message: 'No se encontraron médicos registrados' });
         } else {
-            res.json(result[0]);
+            res.json(result[0][0]);
         }
     } catch (error) {
         next(error);

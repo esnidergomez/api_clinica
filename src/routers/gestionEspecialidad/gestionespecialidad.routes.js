@@ -10,6 +10,6 @@ const especialidadRouter = Router();
 especialidadRouter.get("/consultar-especialidades", getEspecialidades);
 especialidadRouter.get("/consultar-especialidades/:idClinica", getEspecialidadClinica);
 especialidadRouter.get("/consultar-especialidades-favoritas/:idUsuario", getEspecialidadesFavoritasPorUsuario);
-especialidadRouter.put("/asignar-especialidades-favoritas/:idUsuario", putEspecialidadFavorita);
+especialidadRouter.put("/asignar-especialidades-favoritas", putEspecialidadFavorita);
 
 export default especialidadRouter;

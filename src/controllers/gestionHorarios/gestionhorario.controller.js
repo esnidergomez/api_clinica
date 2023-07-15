@@ -8,10 +8,10 @@ export const getHorariosDisponibleMedico = async (req, res, next) => {
     try {
       const result = await pool.query('CALL obtenerHorasDisponibles(?, ?, ?);', [idMedico, idClinica, idEspecialidad]);
   
-      if (result[0].length === 0) {
+      if (result[0][0].length === 0) {
         res.status(404).json({ message: 'No se encontraron horarios disponibles para el médico, clínica y especialidad especificados' });
       } else {
-        res.json(result[0]);
+        res.json(result[0][0]);
       }
     } catch (error) {
       next(error);
