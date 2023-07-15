@@ -1,18 +1,18 @@
 import { pool } from "../../db.js";
 
-export const postRegistrarReserva = async (req, res) => { 
+export const postRegistrarReserva = async (req, res) => {
     const usuarioID = req.params.idUsuario;
-    const 
-    { 
-        fechaagenda, 
-        horaagenda, 
-        idmedico,   
-        idespecialidad, 
-        idclinica, 
-        idtiempos_disponibles, 
-        precio, 
-        idpago 
-    } = req.body;
+    const
+        {
+            fechaagenda,
+            horaagenda,
+            idmedico,
+            idespecialidad,
+            idclinica,
+            idtiempos_disponibles,
+            precio,
+            idpago
+        } = req.body;
 
     try {
         const query = `CALL RegistrarCita(${usuarioID}, '${fechaagenda}', '${horaagenda}', NULL, ${idmedico}, ${idespecialidad}, ${idclinica}, ${idtiempos_disponibles}, ${precio}, '${idpago}');`;
@@ -28,13 +28,13 @@ export const postRegistrarReserva = async (req, res) => {
     }
 }
 
-export const postCancelarReserva = async (req, res) => { 
+export const postCancelarReserva = async (req, res) => {
     const citaID = req.params.idReserva;
 
     try {
         await pool.query(
-        'CALL CancelarCita(?);',
-        [citaID]
+            'CALL CancelarCita(?);',
+            [citaID]
         );
         res.json({ message: 'Cita cancelada exitosamente' });
     } catch (error) {
@@ -42,11 +42,11 @@ export const postCancelarReserva = async (req, res) => {
     }
 }
 
-export const getConsultarReserva = async (req, res) => { 
-    const { idUsuario }= req.params;
+export const getConsultarReserva = async (req, res) => {
+    const { idUsuario } = req.params;
     try {
         const result = await pool.query(
-          'CALL ObtenerReservasUsuario(?);', [idUsuario]
+            'CALL ObtenerReservasUsuario(?);', [idUsuario]
         );
         res.json(result[0]);
     } catch (error) {
